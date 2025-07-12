@@ -1,0 +1,170 @@
+
+.products-section {
+  padding: 60px 20px;
+  background: var(--background-color);
+  font-family: var(--font-family);
+  color: var(--dark-text);
+  text-align: center;
+}
+
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  padding-top: 4rem;
+}
+
+.product-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px var(--shadow-color);
+  position: relative;
+  transform: perspective(1000px) rotateY(0);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.product-card:hover {
+  transform: perspective(1200px) rotateY(3deg) scale(1.03);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.product-image {
+  position: relative;
+  padding-top: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
+}
+
+.discount-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--error-color);
+  color: white;
+  font-weight: bold;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  animation: bounceIn 0.5s ease-out;
+}
+
+.hover-icons {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.product-card:hover .hover-icons {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hover-icons button,
+.hover-icons .like-icon,
+.hover-icons .cart-icon {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.hover-icons button:hover,
+.hover-icons .like-icon:hover,
+.hover-icons .cart-icon:hover {
+  background: var(--primary-hover);
+}
+
+.product-info {
+  padding: 20px;
+  text-align: left;
+}
+
+.product-info h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.price {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.price .current {
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-right: 10px;
+}
+
+.price .old {
+  text-decoration: line-through;
+  color: gray;
+  font-size: 0.95rem;
+}
+
+
+
+/* Animation */
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+  .section-header h2 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-header h2 {
+    font-size: 2rem;
+  }
+
+  .hover-icons {
+    flex-direction: row;
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-card {
+    transform: none;
+  }
+
+  .product-card:hover {
+    transform: none;
+  }
+
+  .add-to-cart-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -1,0 +1,123 @@
+.categories-section {
+  padding: 60px 20px;
+  background: var(--background-color);
+  text-align: center;
+  font-family: var(--font-family);
+}
+
+
+
+.categories-grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 35px;
+}
+
+.category-card {
+  position: relative;
+  height: 360px;
+  border-radius: 2px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease;
+}
+
+.category-card:hover {
+  transform: scale(1.03) rotate(0.4deg);
+}
+
+/* Overlay spans horizontal slide */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.overlay span {
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 33.333%;
+  background: rgba(0, 0, 0, 0.65);
+  top: 0;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+}
+
+.overlay span:nth-child(1) {
+  left: 0;
+  transition-delay: 0.1s;
+}
+.overlay span:nth-child(2) {
+  left: 33.333%;
+  transition-delay: 0.25s;
+}
+.overlay span:nth-child(3) {
+  left: 66.666%;
+  transition-delay: 0.4s;
+}
+
+.category-card:hover .overlay span {
+  transform: translateX(0);
+  opacity: 1;
+
+}
+
+/* Content animation (title, text, button) */
+.category-content {
+  position: absolute;
+  bottom: 30px;
+  left: 20px;
+  right: 20px;
+  z-index: 3;
+  text-align: left;
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.category-card:hover .category-content {
+  animation: fadeInText 0.8s ease forwards;
+  animation-delay: 0.65s;
+}
+
+@keyframes fadeInText {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.category-content h3 {
+  font-size: 1.8rem;
+  color: #fff;
+  margin: 0 0 10px;
+  animation: fadeIn 0.8s ease forwards;
+  animation-delay: 0.75s;
+  opacity: 0;
+  transform: translateX(-15px);
+}
+
+.category-content p {
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-bottom: 15px;
+  animation: fadeIn 0.8s ease forwards;
+  animation-delay: 0.9s;
+  opacity: 0;
+  transform: translateX(-15px);
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

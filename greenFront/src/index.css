@@ -1,0 +1,402 @@
+:root {
+    --navbar-bg: rgba(29, 30, 44, .9);
+  --text-color: #f5f5f5;
+  --dark-text: #1f1e1e;
+  --accent-color: var(--primary-color); /* Purple accent */
+  --button-bg: var(--primary-color);
+  --button-hover: #8a31dd;
+  --primary-color: #9a35f8;        /* Accent: buttons, links */
+  --primary-hover: #51039b;        /* Hover state, slightly deeper */
+  --secondary-color: #59656F;      /* Borders, neutral elements */
+  --background-color: #ececf1;     /* Site background: deep and sleek */
+  --border-color: #59656F;
+  --input-border: #59656F;        /* Main text: soft contrast */
+  --error-color: red;
+  --success-color: limegreen; 
+  --shadow-color: rgba(0, 0, 0, 0.12);
+   
+  --footer-bg: #1D1E2C;
+  --footer-text: #eeeded;
+  --footer-link: #dac5d4;
+  --footer-link-hover: #9a76af;
+  --newsletter-bg: #2A2B3C;
+
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+a{
+  text-decoration: none;
+}
+body {
+  font-family: var(--font-family);
+  background-color: var(--secondary-color);
+}
+.h2-light{
+   font-size: 2rem;
+   color: var(--text-color)
+}
+.h2-dark{
+   font-size: 2rem;
+   color: var(--dark-text);
+}
+.container{
+  padding-inline: 10%;
+}
+.loading-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--navbar-bg); /* or a light overlay like rgba(255,255,255,0.8) */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.title h2 {
+  font-size: 2.8rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.title p {
+  color: var(--dark-text);
+  font-size: 1.2rem;
+}
+
+.dot-loader {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+
+.dot-loader span {
+  width: 12px;
+  height: 12px;
+  background-color: var(--primary-color, #007bff); /* fallback to blue if variable isn't set */
+  border-radius: 50%;
+  animation: pulse 0.6s infinite ease-in-out;
+}
+
+.dot-loader span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot-loader span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+}
+
+.loading-text {
+  font-size: 1.1rem;
+  color: var(--text-color, #333); /* fallback if --text-color not set */
+} 
+/* Global social icon styles */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.social-icons a,
+.icon {
+  --size: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background: linear-gradient(300deg, var(--footer-link), var(--primary-color));
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.25),
+    inset 0 0 6px rgba(255, 255, 255, 0.05);
+  color: var(--footer-bg);
+  font-size: 20px;
+  text-decoration: none;
+  transition: 
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.4s ease;
+  border: 2px solid transparent;
+  position: relative;
+  z-index: 1;
+}
+
+.social-icons a::before ,
+.icon::before{
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.social-icons a:hover,
+.icon:hover {
+  transform: scale(1.15) rotate(2deg);
+  box-shadow: 
+    0 6px 12px rgba(0, 0, 0, 0.3),
+    0 0 15px var(--accent-color),
+    inset 0 0 8px var(--footer-bg);
+  color: var(--accent-color);
+  background: var(--footer-bg);
+}
+
+.social-icons a:hover::before ,
+.icon:hover::before{
+  opacity: 0.25;
+  transform: scale(1.3);
+}
+
+/* Primary button */
+.btn {
+  position: relative;
+  background-color: var(--button-bg);
+  color: var(--text-color);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  transition: 
+    background-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  font-family: var(--font-family, 'Segoe UI', sans-serif);
+}
+
+/* Neon glow effect */
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background: linear-gradient(
+    120deg,
+    var(--primary-color, #ff6ec4),
+    var(--accent-color, #7873f5),
+    var(--button-hover, #3edbf0)
+  );
+  opacity: 0;
+  transform: scale(1.2);
+  filter: blur(15px);
+  transition: all 0.4s ease;
+  z-index: -1;
+}
+
+/* Shine shimmer effect */
+.btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
+  z-index: 2;
+}
+
+/* Hover effect: glow + shine + lift */
+.btn:hover {
+  background-color: var(--button-hover);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn:hover::before {
+  opacity: 0.6;
+  transform: scale(1);
+}
+
+.btn:hover::after {
+  left: 130%;
+}
+
+/* Active press effect */
+.btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Disabled state */
+.btn:disabled {
+  background-color: var(--secondary-color, #ccc);
+  cursor: not-allowed;
+  box-shadow: none;
+  opacity: 0.7;
+}
+
+/* Secondary button */
+.btn-secondary {
+  background-color: var(--background-color);
+  color: var(--primary-color);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-family: var(--font-family);
+}
+
+.btn-secondary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  color: var(--text-color)
+}
+
+.btn-secondary:active {
+  background-color: var(--primary-color);
+  transform: scale(0.98);
+}
+
+.btn-secondary:disabled {
+  background-color: #888;
+  cursor: not-allowed;
+}
+
+/* Outline button */
+.btn-outline {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  padding: 0.5rem 1.1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: var(--font-family);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  transform: translateY(-2px);
+}
+
+.btn-outline:active {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+  color: var(--text-color);
+  transform: scale(0.98);
+}
+
+.btn-outline:disabled {
+  color: #888;
+  border-color: #888;
+  cursor: not-allowed;
+}
+/* alert box */
+.alert-box {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 300px;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  z-index: 9999;
+  display: flex;
+  flex-flow: column;
+  gap: .4rem;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  animation: fadeIn 0.4s ease;
+}
+
+.alert-box .message {
+  flex: 1;
+  color: #fff;
+}
+
+.alert-box .close-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.alert-box.info {
+  background-color: #333;
+}
+
+.alert-box.success {
+  background-color: #28a745;
+}
+
+.alert-box.error {
+  background-color: #dc3545;
+}
+.alert.success-alert {
+  background-color: #e6ffed;
+  color: #1a7f37;
+  border: 1px solid #1a7f37;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+@keyframes slideDown {
+  from {
+    top: -100px;
+    opacity: 0
+  }
+  to {
+    top: 0;
+    opacity: 1
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,70 @@
+/* NotFound.css */
+.not-found-container {
+  text-align: center;
+  padding: 100px 20px;
+  font-family: var(--font-family);
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+.not-found-container h1 {
+  font-size: 80px;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+.not-found-container p {
+  font-size: 20px;
+  margin-bottom: 30px;
+  color: var(--primary-color);
+}
+
+.back-home {
+  text-decoration: none;
+  color: var(--secondary-color);
+  background-color: var(--accent-color);
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.back-home:hover {
+  background-color: var(--accent-color-hover);
+}@media (max-width: 768px) {
+  .not-found-container {
+    padding: 60px 15px;
+  }
+
+  .not-found-container h1 {
+    font-size: 50px;
+  }
+
+  .not-found-container p {
+    font-size: 18px;
+  }
+
+  .back-home {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .not-found-container {
+    padding: 40px 10px;
+  }
+
+  .not-found-container h1 {
+    font-size: 36px;
+  }
+
+  .not-found-container p {
+    font-size: 16px;
+  }
+
+  .back-home {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}

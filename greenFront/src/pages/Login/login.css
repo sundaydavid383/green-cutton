@@ -1,0 +1,63 @@
+.login-page {
+  padding: 4rem;
+  max-width: 700px;
+  margin: auto;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  row-gap: .5rem;
+  margin-top:9rem
+}
+
+.login-page input {
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  height: 3rem;
+  border: 0;
+  outline: 0
+}
+
+.login-page button {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .login-page {
+    padding: 1.5rem 1rem;
+    width: 90%;
+  }
+
+  .login-page input {
+    font-size: 1rem;
+    padding: 0.6rem;
+  }
+
+  .login-page button {
+    font-size: 1rem;
+    padding: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-page {
+    padding: 1rem 0.5rem;
+    width: 100%;
+  }
+
+  .login-page input {
+    font-size: 0.95rem;
+    padding: 0.55rem;
+  }
+
+  .login-page button {
+    font-size: 0.95rem;
+    padding: 0.65rem;
+  }
+}
