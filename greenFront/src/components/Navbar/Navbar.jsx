@@ -73,7 +73,7 @@ const Navbar = ({ onUserIconClick, cartItemCount = 0 }) => {
       </div>
 
       <button className="navbar-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-        <i class="fa-solid fa-bars-staggered"></i>
+        <i className="fa-solid fa-bars-staggered"></i>
       </button>
 
       <ul className={`navbar-links ${isMenuOpen ? "show" : "hide"}`}>
@@ -85,7 +85,7 @@ const Navbar = ({ onUserIconClick, cartItemCount = 0 }) => {
       </ul>
 
 <div className="navbar-user-wrapper">
-  {isAuthenticated && user?.isVerified ? (
+  {isAuthenticated && user ? (
     <>
       <div className="navbar-user" onClick={handleUserIconClick} title={user?.name}>
         {user?.profile ? (

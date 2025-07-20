@@ -1,11 +1,13 @@
 // ✅ Enhanced Footer.jsx with Animation on View
 import React, { useEffect, useRef, useState } from "react";
 import "./footer.css";
+import axios from "axios"
 
 const Footer = () => {
   const footerRef = useRef(null);
   const [email, setEmail] = useState("");
 const [message, setMessage] = useState("");
+const [loading, setLoading]= useState(false);
 const [messageType, setMessageType] = useState(""); // "success" or "error"
   const [isVisible, setIsVisible] = useState(false);
 
@@ -32,11 +34,17 @@ const [messageType, setMessageType] = useState(""); // "success" or "error"
   setMessage("");
 
   try {
-    const res = await axios.post("http://localhost:4000/api/subscribe", { email });
+    setLoading(true)
+    const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/subscribe`, { email });
     setMessage(res.data.message || "Subscribed successfully!");
     setEmail("");
+    console.log("this is what we got ", res)
   } catch (err) {
     setMessage(err.response?.data?.message || "Something went wrong.");
+     console.log("this is what we got ", err)
+  }
+  finally{
+    setLoading(false)
   }
 };
 
@@ -60,7 +68,7 @@ const [messageType, setMessageType] = useState(""); // "success" or "error"
     onChange={(e) => setEmail(e.target.value)}
     required
   />
-  <button className="btn" type="submit">Subscribe</button>
+  <button className="btn" type="submit">{loading ?"loading..":"Subscribe"}</button>
 </form>
 
 {message && (

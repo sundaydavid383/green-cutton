@@ -34,7 +34,7 @@ export const AuthProvider = ({ children }) => {
     try {
       console.log("this is the form data", formData);
       const response = await axios.post(
-        "http://localhost:4000/api/auth/register",
+        `${import.meta.env.VITE_API_URL}/api/auth/register`,
         formData,
         {
           headers: {

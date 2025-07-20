@@ -336,7 +336,7 @@ body {
   max-width: 300px;
   padding: 1rem 1.5rem;
   border-radius: 8px;
-  z-index: 9999;
+  z-index: 999999;
   display: flex;
   flex-flow: column;
   gap: .4rem;

@@ -3,14 +3,15 @@
   top: 20px;
   right: 20px;
   width: 320px;
-  background: var(--background-color);
+  background: var(--navbar-bg);
   color: var(--text-color);
   border: 1px solid var(--border-color);
   padding: 1rem;
   box-shadow: 0 4px 12px var(--shadow-color);
   font-family: var(--font-family);
-  z-index: 1000;
+  z-index: 999999;
   border-radius: 12px;
+  backdrop-filter: blur(2px)
 }
 
 .close-icon {

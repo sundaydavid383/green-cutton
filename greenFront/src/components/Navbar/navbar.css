@@ -10,7 +10,7 @@
   justify-content: space-between;
   padding: 1rem 2rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  z-index: 999;
+  z-index: 99999;
   transition: top 0.4s ease, position 0.3s ease;
   backdrop-filter: blur(3px);
   font-family: var(--font-family);
@@ -89,11 +89,11 @@
 
 .navbar-links li:hover::before {
   width: 100%;
-  left: 0;
+  left: 20%;
 }
 
 .navbar-links li:hover::after {
-  left: 100%;
+  left: 50%;
 }
 
 
